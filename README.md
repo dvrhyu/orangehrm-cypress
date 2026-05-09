@@ -61,8 +61,4 @@ login.clickLogin()
 login.assertionLogin()
 ```
 
----
 
-## Author
-
-**Devi Oktavia Rahayu**
