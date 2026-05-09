@@ -1,25 +1,68 @@
-# OrangeHRM Cypress Automation
+# OrangeHRM Cypress Automation Testing
 
-## Project Description
-Automation testing for OrangeHRM login feature using Cypress.
+## Overview
+
+Project ini merupakan automation testing website OrangeHRM menggunakan Cypress dan JavaScript dengan metode Page Object Model (POM).
+
+Website:
+
+* https://opensource-demo.orangehrmlive.com/
+
+---
 
 ## Tools
-- Cypress
-- Node.js
 
-## Test Cases
-- TC_001 Login valid
-- TC_002 Invalid username & password
-- TC_003 Wrong password
-- TC_004 Wrong username
-- TC_005 Username kosong
-- TC_006 Password kosong
-- TC_007 Semua field kosong
-- TC_008 Forgot password
+* Cypress
+* JavaScript
+* VS Code
+* Git & GitHub
 
-## Status
-All test cases PASSED ✅
+---
 
-## How to Run
-npm install
-npx cypress open
+## Fitur yang Diuji
+
+### Login Testing
+
+* Login berhasil
+* Login gagal
+* Validasi username kosong
+* Validasi password kosong
+
+### Forgot Password Testing
+
+* Membuka halaman forgot password
+* Input username
+* Reset password
+
+### Dashboard & Directory
+
+* Membuka menu directory
+* Mencari employee
+
+---
+
+## Command Git
+
+```bash
+git add .
+git commit -m "Add OrangeHRM Cypress automation tests"
+git push
+```
+
+---
+
+## Cypress Test
+
+```js
+login.inputUsername('Admin')
+login.inputPassword('admin123')
+login.clickLogin()
+
+login.assertionLogin()
+```
+
+---
+
+## Author
+
+**Devi Oktavia Rahayu**
