@@ -5,43 +5,61 @@ class LoginPage {
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login', {
       timeout: 120000
     })
+
+    cy.get('input[name="username"]', { timeout: 15000 })
+      .should('be.visible')
   }
 
   inputUsername(username) {
-    cy.get('input[name="username"]').should('be.visible').clear().type(username)
+    cy.get('input[name="username"]', { timeout: 10000 })
+      .should('be.visible')
+      .clear()
+      .type(username)
   }
 
   inputPassword(password) {
-    cy.get('input[name="password"]').clear().type(password)
+    cy.get('input[name="password"]', { timeout: 10000 })
+      .should('be.visible')
+      .clear()
+      .type(password)
   }
 
   clickLogin() {
-    cy.get('button[type="submit"]').click()
+    cy.get('button[type="submit"]', { timeout: 10000 })
+      .should('be.visible')
+      .click()
   }
 
   clickForgotPassword() {
-    cy.contains('Forgot your password?').click()
+    cy.contains('Forgot your password?', { timeout: 10000 })
+      .should('be.visible')
+      .click()
   }
 
   // ===== ASSERTION =====
   assertionLogin() {
-    cy.url().should('include', '/dashboard')
+    cy.url({ timeout: 10000 })
+      .should('include', '/dashboard')
   }
 
   assertionLoginFailed() {
-    cy.url().should('include', '/auth/login')
+    cy.url({ timeout: 10000 })
+      .should('include', '/auth/login')
   }
 
   assertionErrorMessage() {
-    cy.contains('Invalid credentials').should('be.visible')
+    cy.contains('Invalid credentials', { timeout: 10000 })
+      .should('be.visible')
   }
 
   assertionRequiredField() {
-    cy.contains('Required').should('be.visible')
+    cy.contains('Required', { timeout: 10000 })
+      .should('be.visible')
   }
 
   assertionForgotPage() {
-    cy.url().should('include', 'requestPasswordResetCode')
+    cy.url({ timeout: 10000 })
+      .should('include', 'requestPasswordResetCode')
   }
 
 }
